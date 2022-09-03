@@ -79,3 +79,51 @@ module.exports.saveUserInfo = (req, res, next) => {
         res.end();
     }
 }
+
+// update a user information with id in the json file
+
+module.exports.updateSingleUserInfo = (req, res, next) => {
+    const { id } = req.params;
+    const info = req.body;
+    fs.readFile("userData.json", (err, data) => {
+        if (err) {
+            console.log(err);
+            res.send("Something went wrong. Try again later");
+            res.end();
+        }
+        else {
+            const updatedUser = JSON.parse(data).find(user => user._id === Number(id))
+            if (updatedUser) {
+                for (const i in info) {
+                    for (const j in updatedUser) {
+                        if (i.toLowerCase() == j.toLowerCase()) {
+                            updatedUser[j] = info[i]
+                        }
+                    }
+                }
+                console.log(updatedUser);
+                const allUser = JSON.parse(data);
+                allUser[Number(id) - 1] = updatedUser;
+                // console.log(allUser)
+                fs.writeFile("userData.json", JSON.stringify(allUser, null, 2), (err) => {
+                    if (err) {
+                        console.log(err);
+                        res.send("Something went wrong. Try again later");
+                        res.end();
+                    }
+                    else {
+                        {
+                            res.send(`update user with id ${id}`);
+                            res.end();
+                        }
+                    }
+                })
+            }
+            else {
+                res.send(`No user found with id ${id}`);
+                res.end();
+            }
+        }
+    })
+
+}
