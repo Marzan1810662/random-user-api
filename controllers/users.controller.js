@@ -17,3 +17,19 @@ module.exports.getRandomUser = (req, res, next) => {
     });
 
 }
+
+//get all users from the json file
+module.exports.getAllUsers = (req, res, next) => {
+    const { limit } = req.query;
+    console.log(limit);
+    fs.readFile('userdata.json', 'utf-8', (err, data) => {
+        if(limit) {
+            res.send(JSON.parse(data).slice(0,limit))
+        }
+        else {
+            res.send(JSON.parse(data));
+            res.end();
+        }
+    });
+
+}
