@@ -1,0 +1,66 @@
+[
+    {
+      "_id": 1,
+      "picture": "http://placehold.it/32x32",
+      "name": "Whitney Delgado",
+      "gender": "female",
+      "phone": "+1 (992) 458-3488",
+      "address": "594 Kenilworth Place, Brutus, Nebraska, 1769"
+    },
+    {
+      "_id": 2,
+      "picture": "http://placehold.it/32x32",
+      "name": "Robinson Ferrell",
+      "gender": "male",
+      "phone": "+1 (822) 448-2443",
+      "address": "577 Landis Court, Frystown, Federated States Of Micronesia, 7154"
+    },
+    {
+      "_id": 3,
+      "picture": "http://placehold.it/32x32",
+      "name": "Salazar Hill",
+      "gender": "male",
+      "phone": "+1 (804) 587-2635",
+      "address": "953 Sapphire Street, Belvoir, Kansas, 123"
+    },
+    {
+      "_id": 4,
+      "picture": "http://placehold.it/32x32",
+      "name": "Stewart Burton",
+      "gender": "male",
+      "phone": "+1 (831) 444-3367",
+      "address": "807 Farragut Road, Camas, Vermont, 9037"
+    },
+    {
+      "_id": 5,
+      "picture": "http://placehold.it/32x32",
+      "name": "Travis Duncan",
+      "gender": "male",
+      "phone": "+1 (955) 564-2986",
+      "address": "889 Applegate Court, Dexter, West Virginia, 9302"
+    },
+    {
+      "_id": 6,
+      "picture": "http://placehold.it/32x32",
+      "name": "Raquel French",
+      "gender": "female",
+      "phone": "+1 (937) 494-2242",
+      "address": "489 Norman Avenue, Hoagland, Delaware, 1571"
+    },
+    {
+      "_id": 7,
+      "picture": "http://placehold.it/32x32",
+      "name": "Elisa Wells",
+      "gender": "female",
+      "phone": "+1 (838) 540-3401",
+      "address": "395 Ralph Avenue, Fresno, North Carolina, 971"
+    },
+    {
+      "_id": 8,
+      "picture": "http://placehold.it/32x32",
+      "name": "Bush Moss",
+      "gender": "male",
+      "phone": "+1 (881) 571-2828",
+      "address": "641 Albee Square, Hemlock, New Hampshire, 5776"
+    }
+  ]
