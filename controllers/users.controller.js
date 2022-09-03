@@ -85,7 +85,7 @@ module.exports.saveUserInfo = (req, res, next) => {
 module.exports.updateSingleUserInfo = (req, res, next) => {
     const { id } = req.params;
     const info = req.body;
-    fs.readFile("userData.json", (err, data) => {
+    fs.readFile("userData.json", 'utf-8', (err, data) => {
         if (err) {
             console.log(err);
             res.send("Something went wrong. Try again later");
@@ -126,4 +126,39 @@ module.exports.updateSingleUserInfo = (req, res, next) => {
         }
     })
 
+}
+
+//delete a user info with id from the json file
+module.exports.deleteUser = (req, res, next) => {
+    const { id } = req.params;
+    fs.readFile("userdata.json", "utf-8", (err, data) => {
+        if (err) {
+            console.log(err);
+            res.send("Something went wrong. Please Try again later!");
+            res.end();
+        }
+        else {
+            const foundUser = JSON.parse(data).find(user =>
+                user._id === Number(id));
+            if (foundUser) {
+                const filter = JSON.parse(data).filter(user =>
+                    user._id !== Number(id));
+                fs.writeFile("userData.json", JSON.stringify(filter,null,2), (err) => {
+                    if (err) {
+                        console.log(err);
+                        res.send("Something went wrong. Please Try again later!");
+                        res.end();
+                    }
+                    else {
+                        res.send(`user deleted ith id ${id}`);
+                        res.end();
+                    }
+                });
+            }
+            else {
+                res.send(`Sorry! No user user found with id ${id}`);
+                res.end();
+            }
+        }
+    });
 }
